@@ -28,9 +28,6 @@ PMFInspect helps to:
   - Python 3.10+
   - Sufficient privileges to capture IEEE 802.11 frames
 
-> Note: This README does not include offensive procedures or attack commands.  
-> PMFInspect is designed for evaluation and analysis in controlled conditions.
-
 ---
 
 ## Experimental Setup
