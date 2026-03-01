@@ -14,8 +14,6 @@ PMFInspect helps to:
 
 - Determine the advertised PMF configuration via RSN capabilities (**MFPC / MFPR bits**)
 - Verify whether PMF support is **effectively enforced**, not just announced
-- Produce a structured **security verdict** (Not Supported / Optional / Required)
-- Generate traces and reports for reproducible analysis
 
 ---
 
@@ -26,7 +24,6 @@ PMFInspect helps to:
 - An analysis machine (Linux recommended) with:
   - A Wi-Fi interface supporting **monitor mode**
   - Python 3.10+
-  - Sufficient privileges to capture IEEE 802.11 frames
 
 ---
 
