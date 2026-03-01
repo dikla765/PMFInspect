@@ -32,4 +32,6 @@ PMFInspect helps to:
 
 ## Experimental Setup
 
-Logical testbed architecture:
+<p align="center">
+  <img src="figure.png" alt="Experimental Setup" width="600"/>
+</p>
