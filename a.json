@@ -1,0 +1,2574 @@
+{
+  "meta": {
+    "devices_json": "/home/dnl/Desktop/methodes/devices.json",
+    "capture_dir": "/home/dnl/Desktop/methodes/capture",
+    "out_dir": "/home/dnl/Desktop/methodes",
+    "scapy_has_eapol": true,
+    "tshark_available": true,
+    "use_tshark_mode": "auto",
+    "note": "MFPC/MFPR come from RSN Capabilities in Association Req/Resp. 'Negotiated' PMF is best read from Association Response."
+  },
+  "captures": [
+    {
+      "capture_file": "capture_1.pcap",
+      "index": "1",
+      "devices": {
+        "Plug P110M": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug P110M/Plug P110M_1.pcap",
+          "packet_count": 454,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "3c:6a:d2:7a:08:9f",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 0,
+              "rsn_capabilities": 140
+            },
+            {
+              "frame": "AssociationRequest",
+              "sta": "3c:6a:d2:7a:08:9f",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 0,
+              "rsn_capabilities": 140
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "3c:6a:d2:7a:08:9f",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            },
+            {
+              "frame": "AssociationResponse",
+              "sta": "3c:6a:d2:7a:08:9f",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 0,
+            "pmf_mode": "PMF_capable_optional",
+            "rsn_capabilities": 140
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "3c:6a:d2:7a:08:9f",
+              "key_info": 138,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "3c:6a:d2:7a:08:9f",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 266,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "3c:6a:d2:7a:08:9f",
+              "key_info": 5066,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "3c:6a:d2:7a:08:9f",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 778,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_10.pcap",
+      "index": "10",
+      "devices": {
+        "Speaker Echo Pop": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Speaker Echo Pop/Speaker Echo Pop_10.pcap",
+          "packet_count": 2876,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "50:99:5a:30:51:71",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 192
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "50:99:5a:30:51:71",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 192
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "50:99:5a:30:51:71",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "50:99:5a:30:51:71",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "50:99:5a:30:51:71",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "50:99:5a:30:51:71",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_11.pcap",
+      "index": "11",
+      "devices": {
+        "Bulb Philips WiZ": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Bulb Philips WiZ/Bulb Philips WiZ_11.pcap",
+          "packet_count": 656,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "d8:a0:11:98:2e:69",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 1216
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "d8:a0:11:98:2e:69",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 1216
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "d8:a0:11:98:2e:69",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "d8:a0:11:98:2e:69",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "d8:a0:11:98:2e:69",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 0,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_12.pcap",
+      "index": "12",
+      "devices": {
+        "Speaker Xiaomi": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Speaker Xiaomi/Speaker Xiaomi_12.pcap",
+          "packet_count": 4016,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "d4:35:38:08:31:bf",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 0,
+              "mfpr": 0,
+              "rsn_capabilities": 0
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "d4:35:38:08:31:bf",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 0,
+            "mfpr": 0,
+            "pmf_mode": "PMF_not_supported",
+            "rsn_capabilities": 0
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "d4:35:38:08:31:bf",
+              "key_info": 138,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "d4:35:38:08:31:bf",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 266,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "d4:35:38:08:31:bf",
+              "key_info": 5066,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "d4:35:38:08:31:bf",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 778,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_13.pcap",
+      "index": "13",
+      "devices": {
+        "Speaker Xiaomi": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Speaker Xiaomi/Speaker Xiaomi_13.pcap",
+          "packet_count": 5390,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "d4:35:38:08:31:bf",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 0,
+              "mfpr": 0,
+              "rsn_capabilities": 0
+            },
+            {
+              "frame": "AssociationRequest",
+              "sta": "d4:35:38:08:31:bf",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 0,
+              "mfpr": 0,
+              "rsn_capabilities": 0
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "d4:35:38:08:31:bf",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 0,
+            "mfpr": 0,
+            "pmf_mode": "PMF_not_supported",
+            "rsn_capabilities": 0
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "d4:35:38:08:31:bf",
+              "key_info": 138,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "d4:35:38:08:31:bf",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 266,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "d4:35:38:08:31:bf",
+              "key_info": 5066,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "d4:35:38:08:31:bf",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 778,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_14.pcap",
+      "index": "14",
+      "devices": {
+        "Bulb Ruva EDO": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Bulb Ruva EDO/Bulb Ruva EDO_14.pcap",
+          "packet_count": 1679,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "80:64:7c:1b:07:2c",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 0,
+              "rsn_capabilities": 128
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "80:64:7c:1b:07:2c",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 0,
+            "pmf_mode": "PMF_capable_optional",
+            "rsn_capabilities": 128
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "80:64:7c:1b:07:2c",
+              "key_info": 139,
+              "bits": {
+                "descriptor_version": 3,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "80:64:7c:1b:07:2c",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 267,
+              "bits": {
+                "descriptor_version": 3,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "80:64:7c:1b:07:2c",
+              "key_info": 5067,
+              "bits": {
+                "descriptor_version": 3,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "80:64:7c:1b:07:2c",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 779,
+              "bits": {
+                "descriptor_version": 3,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_15.pcap",
+      "index": "15",
+      "devices": {}
+    },
+    {
+      "capture_file": "capture_16.pcap",
+      "index": "16",
+      "devices": {}
+    },
+    {
+      "capture_file": "capture_17.pcap",
+      "index": "17",
+      "devices": {
+        "Plug Antela": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug Antela/Plug Antela_17.pcap",
+          "packet_count": 395,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "38:2c:e5:e3:c4:65",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 0,
+              "mfpr": 0,
+              "rsn_capabilities": 8
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "38:2c:e5:e3:c4:65",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 0,
+            "mfpr": 0,
+            "pmf_mode": "PMF_not_supported",
+            "rsn_capabilities": 8
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "38:2c:e5:e3:c4:65",
+              "key_info": 138,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "38:2c:e5:e3:c4:65",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 266,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "38:2c:e5:e3:c4:65",
+              "key_info": 5066,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "38:2c:e5:e3:c4:65",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 778,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_2.pcap",
+      "index": "2",
+      "devices": {
+        "Plug P110 a": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug P110 a/Plug P110 a_2.pcap",
+          "packet_count": 625,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "5c:62:8b:b1:c7:1e",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 0,
+              "rsn_capabilities": 140
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "5c:62:8b:b1:c7:1e",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 0,
+            "pmf_mode": "PMF_capable_optional",
+            "rsn_capabilities": 140
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:62:8b:b1:c7:1e",
+              "key_info": 138,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:62:8b:b1:c7:1e",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 266,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:62:8b:b1:c7:1e",
+              "key_info": 5066,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:62:8b:b1:c7:1e",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 778,
+              "bits": {
+                "descriptor_version": 2,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_3.pcap",
+      "index": "3",
+      "devices": {
+        "Plug P110 a": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug P110 a/Plug P110 a_3.pcap",
+          "packet_count": 653,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "5c:62:8b:b1:c7:1e",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 204
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "5c:62:8b:b1:c7:1e",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 204
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:62:8b:b1:c7:1e",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:62:8b:b1:c7:1e",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:62:8b:b1:c7:1e",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:62:8b:b1:c7:1e",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        },
+        "Plug P110M": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug P110M/Plug P110M_3.pcap",
+          "packet_count": 546,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "3c:6a:d2:7a:08:9f",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 204
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "3c:6a:d2:7a:08:9f",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 204
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "3c:6a:d2:7a:08:9f",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "3c:6a:d2:7a:08:9f",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "3c:6a:d2:7a:08:9f",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "3c:6a:d2:7a:08:9f",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_4.pcap",
+      "index": "4",
+      "devices": {
+        "Bulb Linkind": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Bulb Linkind/Bulb Linkind_4.pcap",
+          "packet_count": 63,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "a0:85:e3:71:e6:5c",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 1216
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "a0:85:e3:71:e6:5c",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 1216
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "a0:85:e3:71:e6:5c",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "a0:85:e3:71:e6:5c",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "a0:85:e3:71:e6:5c",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "a0:85:e3:71:e6:5c",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_5.pcap",
+      "index": "5",
+      "devices": {
+        "Bulb Linkind": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Bulb Linkind/Bulb Linkind_5.pcap",
+          "packet_count": 1768,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "a0:85:e3:71:e6:5c",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 1216
+            },
+            {
+              "frame": "AssociationRequest",
+              "sta": "a0:85:e3:71:e6:5c",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 1216
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "a0:85:e3:71:e6:5c",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            },
+            {
+              "frame": "AssociationResponse",
+              "sta": "a0:85:e3:71:e6:5c",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 1216
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "a0:85:e3:71:e6:5c",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "a0:85:e3:71:e6:5c",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "a0:85:e3:71:e6:5c",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "a0:85:e3:71:e6:5c",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "a0:85:e3:71:e6:5c",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "a0:85:e3:71:e6:5c",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "a0:85:e3:71:e6:5c",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "a0:85:e3:71:e6:5c",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "a0:85:e3:71:e6:5c",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "a0:85:e3:71:e6:5c",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 4,
+            "2": 2,
+            "3": 2,
+            "4": 2,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_6.pcap",
+      "index": "6",
+      "devices": {
+        "Plug Meross": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug Meross/Plug Meross_6.pcap",
+          "packet_count": 463,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "c4:e7:ae:02:93:fc",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 204
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "c4:e7:ae:02:93:fc",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 204
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "c4:e7:ae:02:93:fc",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "c4:e7:ae:02:93:fc",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "c4:e7:ae:02:93:fc",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "c4:e7:ae:02:93:fc",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_7.pcap",
+      "index": "7",
+      "devices": {
+        "Hub H100": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Hub H100/Hub H100_7.pcap",
+          "packet_count": 3705,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "5c:e9:31:af:91:1a",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 204
+            },
+            {
+              "frame": "AssociationRequest",
+              "sta": "5c:e9:31:af:91:1a",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 204
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "5c:e9:31:af:91:1a",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            },
+            {
+              "frame": "AssociationResponse",
+              "sta": "5c:e9:31:af:91:1a",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 204
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:e9:31:af:91:1a",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:e9:31:af:91:1a",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:e9:31:af:91:1a",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:e9:31:af:91:1a",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:e9:31:af:91:1a",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:e9:31:af:91:1a",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:e9:31:af:91:1a",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:e9:31:af:91:1a",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 2,
+            "2": 2,
+            "3": 2,
+            "4": 2,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        },
+        "Plug P300": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug P300/Plug P300_7.pcap",
+          "packet_count": 1261,
+          "assoc_requests": [],
+          "assoc_responses": [],
+          "rsn_negotiated": {
+            "source": null,
+            "mfpc": null,
+            "mfpr": null,
+            "pmf_mode": "unknown",
+            "rsn_capabilities": null
+          },
+          "four_way_handshake": [],
+          "four_way_message_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": false,
+            "encrypted_key_data": null,
+            "msg3_key_data_readable": null
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_8.pcap",
+      "index": "8",
+      "devices": {
+        "Hub H100": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Hub H100/Hub H100_8.pcap",
+          "packet_count": 1453,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "5c:e9:31:af:91:1a",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 204
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "5c:e9:31:af:91:1a",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 204
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:e9:31:af:91:1a",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:e9:31:af:91:1a",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "5c:e9:31:af:91:1a",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "5c:e9:31:af:91:1a",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        },
+        "Plug P300": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug P300/Plug P300_8.pcap",
+          "packet_count": 337,
+          "assoc_requests": [],
+          "assoc_responses": [],
+          "rsn_negotiated": {
+            "source": null,
+            "mfpc": null,
+            "mfpr": null,
+            "pmf_mode": "unknown",
+            "rsn_capabilities": null
+          },
+          "four_way_handshake": [],
+          "four_way_message_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": false,
+            "encrypted_key_data": null,
+            "msg3_key_data_readable": null
+          }
+        }
+      }
+    },
+    {
+      "capture_file": "capture_9.pcap",
+      "index": "9",
+      "devices": {
+        "Plug P300": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Plug P300/Plug P300_9.pcap",
+          "packet_count": 157,
+          "assoc_requests": [],
+          "assoc_responses": [],
+          "rsn_negotiated": {
+            "source": null,
+            "mfpc": null,
+            "mfpr": null,
+            "pmf_mode": "unknown",
+            "rsn_capabilities": null
+          },
+          "four_way_handshake": [],
+          "four_way_message_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": false,
+            "encrypted_key_data": null,
+            "msg3_key_data_readable": null
+          }
+        },
+        "Bulb L510E": {
+          "pcap_written": "/home/dnl/Desktop/methodes/Bulb L510E/Bulb L510E_9.pcap",
+          "packet_count": 405,
+          "assoc_requests": [
+            {
+              "frame": "AssociationRequest",
+              "sta": "50:91:e3:1c:9b:e4",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": true,
+              "mfpc": 1,
+              "mfpr": 1,
+              "rsn_capabilities": 1216
+            }
+          ],
+          "assoc_responses": [
+            {
+              "frame": "AssociationResponse",
+              "sta": "50:91:e3:1c:9b:e4",
+              "ap": "cc:28:aa:6d:06:28",
+              "bssid": "cc:28:aa:6d:06:28",
+              "has_rsn": false,
+              "mfpc": null,
+              "mfpr": null,
+              "rsn_capabilities": null
+            }
+          ],
+          "rsn_negotiated": {
+            "source": "AssociationRequest",
+            "mfpc": 1,
+            "mfpr": 1,
+            "pmf_mode": "PMF_required",
+            "rsn_capabilities": 1216
+          },
+          "four_way_handshake": [
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "50:91:e3:1c:9b:e4",
+              "key_info": 136,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 1,
+                "mic": 0,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 1,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "50:91:e3:1c:9b:e4",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 264,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 0,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 2,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "cc:28:aa:6d:06:28",
+              "dst": "50:91:e3:1c:9b:e4",
+              "key_info": 5064,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 1,
+                "ack": 1,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 1
+              },
+              "message": 3,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            },
+            {
+              "frame": "EAPOL-Key",
+              "src": "50:91:e3:1c:9b:e4",
+              "dst": "cc:28:aa:6d:06:28",
+              "key_info": 776,
+              "bits": {
+                "descriptor_version": 0,
+                "key_type_pairwise": 1,
+                "install": 0,
+                "ack": 0,
+                "mic": 1,
+                "secure": 1,
+                "error": 0,
+                "request": 0,
+                "encrypted_key_data": 0
+              },
+              "message": 4,
+              "key_type": "pairwise",
+              "replay_counter": null,
+              "source": "scapy"
+            }
+          ],
+          "four_way_message_counts": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "unknown": 0
+          },
+          "msg3_negotiation_hint": {
+            "msg3_present": true,
+            "encrypted_key_data": 1,
+            "msg3_key_data_readable": false,
+            "note": "If encrypted_key_data=1, Key Data (GTK/IGTK/KDE) cannot be parsed without decrypting the EAPOL payload."
+          }
+        }
+      }
+    }
+  ]
+}

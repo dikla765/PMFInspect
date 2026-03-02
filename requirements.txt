@@ -1,0 +1,28 @@
+# =========================
+# Python Dependencies
+# =========================
+
+scapy>=2.5.0
+netifaces>=0.11.0
+
+
+# =========================
+# System Dependencies (install via OS package manager)
+# =========================
+# These are REQUIRED but NOT installed by pip.
+#
+# Debian / Ubuntu / Kali:
+# sudo apt install tcpdump tshark aircrack-ng wireless-tools iw libcap2-bin
+#
+# Fedora:
+# sudo dnf install tcpdump wireshark-cli aircrack-ng wireless-tools iw libcap
+#
+# Arch:
+# sudo pacman -S tcpdump wireshark-cli aircrack-ng wireless_tools iw libcap
+#
+# Tools used:
+# - tcpdump        → packet capture (monitor mode)
+# - tshark         → EAPOL fallback decoding
+# - aircrack-ng    → airmon-ng (monitor mode)
+# - iw / iwconfig  → channel configuration
+# - libcap2-bin    → setcap / getcap for tcpdump capabilities
