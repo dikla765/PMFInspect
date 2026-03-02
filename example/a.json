@@ -1,8 +1,8 @@
 {
   "meta": {
-    "devices_json": "/home/dnl/Desktop/methodes/devices.json",
-    "capture_dir": "/home/dnl/Desktop/methodes/capture",
-    "out_dir": "/home/dnl/Desktop/methodes",
+    "devices_json": "/home/User/Desktop/PMFInspect/devices.json",
+    "capture_dir": "/home/User/Desktop/PMFInspect/capture",
+    "out_dir": "/home/User/Desktop/PMFInspect",
     "scapy_has_eapol": true,
     "tshark_available": true,
     "use_tshark_mode": "auto",
@@ -14,7 +14,7 @@
       "index": "1",
       "devices": {
         "Plug P110M": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug P110M/Plug P110M_1.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug P110M/Plug P110M_1.pcap",
           "packet_count": 454,
           "assoc_requests": [
             {
@@ -172,7 +172,7 @@
       "index": "10",
       "devices": {
         "Speaker Echo Pop": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Speaker Echo Pop/Speaker Echo Pop_10.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Speaker Echo Pop/Speaker Echo Pop_10.pcap",
           "packet_count": 2876,
           "assoc_requests": [
             {
@@ -311,7 +311,7 @@
       "index": "11",
       "devices": {
         "Bulb Philips WiZ": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Bulb Philips WiZ/Bulb Philips WiZ_11.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Bulb Philips WiZ/Bulb Philips WiZ_11.pcap",
           "packet_count": 656,
           "assoc_requests": [
             {
@@ -429,7 +429,7 @@
       "index": "12",
       "devices": {
         "Speaker Xiaomi": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Speaker Xiaomi/Speaker Xiaomi_12.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Speaker Xiaomi/Speaker Xiaomi_12.pcap",
           "packet_count": 4016,
           "assoc_requests": [
             {
@@ -568,7 +568,7 @@
       "index": "13",
       "devices": {
         "Speaker Xiaomi": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Speaker Xiaomi/Speaker Xiaomi_13.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Speaker Xiaomi/Speaker Xiaomi_13.pcap",
           "packet_count": 5390,
           "assoc_requests": [
             {
@@ -716,7 +716,7 @@
       "index": "14",
       "devices": {
         "Bulb Ruva EDO": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Bulb Ruva EDO/Bulb Ruva EDO_14.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Bulb Ruva EDO/Bulb Ruva EDO_14.pcap",
           "packet_count": 1679,
           "assoc_requests": [
             {
@@ -865,7 +865,7 @@
       "index": "17",
       "devices": {
         "Plug Antela": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug Antela/Plug Antela_17.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug Antela/Plug Antela_17.pcap",
           "packet_count": 395,
           "assoc_requests": [
             {
@@ -1004,7 +1004,7 @@
       "index": "2",
       "devices": {
         "Plug P110 a": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug P110 a/Plug P110 a_2.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug P110 a/Plug P110 a_2.pcap",
           "packet_count": 625,
           "assoc_requests": [
             {
@@ -1143,7 +1143,7 @@
       "index": "3",
       "devices": {
         "Plug P110 a": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug P110 a/Plug P110 a_3.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug P110 a/Plug P110 a_3.pcap",
           "packet_count": 653,
           "assoc_requests": [
             {
@@ -1276,7 +1276,7 @@
           }
         },
         "Plug P110M": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug P110M/Plug P110M_3.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug P110M/Plug P110M_3.pcap",
           "packet_count": 546,
           "assoc_requests": [
             {
@@ -1415,7 +1415,7 @@
       "index": "4",
       "devices": {
         "Bulb Linkind": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Bulb Linkind/Bulb Linkind_4.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Bulb Linkind/Bulb Linkind_4.pcap",
           "packet_count": 63,
           "assoc_requests": [
             {
@@ -1554,7 +1554,7 @@
       "index": "5",
       "devices": {
         "Bulb Linkind": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Bulb Linkind/Bulb Linkind_5.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Bulb Linkind/Bulb Linkind_5.pcap",
           "packet_count": 1768,
           "assoc_requests": [
             {
@@ -1838,7 +1838,7 @@
       "index": "6",
       "devices": {
         "Plug Meross": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug Meross/Plug Meross_6.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug Meross/Plug Meross_6.pcap",
           "packet_count": 463,
           "assoc_requests": [
             {
@@ -1977,7 +1977,7 @@
       "index": "7",
       "devices": {
         "Hub H100": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Hub H100/Hub H100_7.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Hub H100/Hub H100_7.pcap",
           "packet_count": 3705,
           "assoc_requests": [
             {
@@ -2213,7 +2213,7 @@
           }
         },
         "Plug P300": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug P300/Plug P300_7.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug P300/Plug P300_7.pcap",
           "packet_count": 1261,
           "assoc_requests": [],
           "assoc_responses": [],
@@ -2245,7 +2245,7 @@
       "index": "8",
       "devices": {
         "Hub H100": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Hub H100/Hub H100_8.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Hub H100/Hub H100_8.pcap",
           "packet_count": 1453,
           "assoc_requests": [
             {
@@ -2378,7 +2378,7 @@
           }
         },
         "Plug P300": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug P300/Plug P300_8.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug P300/Plug P300_8.pcap",
           "packet_count": 337,
           "assoc_requests": [],
           "assoc_responses": [],
@@ -2410,7 +2410,7 @@
       "index": "9",
       "devices": {
         "Plug P300": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Plug P300/Plug P300_9.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Plug P300/Plug P300_9.pcap",
           "packet_count": 157,
           "assoc_requests": [],
           "assoc_responses": [],
@@ -2436,7 +2436,7 @@
           }
         },
         "Bulb L510E": {
-          "pcap_written": "/home/dnl/Desktop/methodes/Bulb L510E/Bulb L510E_9.pcap",
+          "pcap_written": "/home/User/Desktop/PMFInspect/Bulb L510E/Bulb L510E_9.pcap",
           "packet_count": 405,
           "assoc_requests": [
             {
