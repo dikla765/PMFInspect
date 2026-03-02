@@ -32,3 +32,36 @@ PMFInspect helps to:
 <p align="center">
   <img src="figure.png" alt="Experimental Setup" width="600"/>
 </p>
+
+
+
+##  Repository Structure
+
+```
+.
+├── example/ Contains example execution workflows and usage demonstrations.
+├── capture.py
+├── deauth_capture.py
+├── element.py
+├── devices.json
+├── requirements.txt
+├── rsn_report.py
+└── deauth_report.py
+```
+
+* **example**: a folder that contains all example workflows along with execution code.
+
+* **capture.py**: the file responsible for capturing network traces during the device association phase. It assists in collecting trace files during this period. It subsequently creates the trace file *"capture.pcap"* inside the *"capture"* directory.
+
+* **deauth_capture.py**: contains the script used to execute deauthentication and disassociation attack tests. It collects the resulting traces and stores them in the corresponding directory.
+
+* **element.py**: a network utility module used by `capture.py` and `deauth_capture.py`.
+
+* **requirements.txt**: contains the required dependencies.
+
+* **rsn_report.py**: iterates through the `capture/` directory and generates a JSON report named `"report.json"`.
+
+* **deauth_report.py**: iterates through the `deauth_capture/` directory and generates a JSON report named `"report.json"`.
+
+---
+
