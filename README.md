@@ -1,29 +1,21 @@
 # PMFInspect
 
-PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT device correctly implements **Protected Management Frames (PMF – IEEE 802.11w)** and to evaluate its robustness against management-frame–based disruptions (e.g., deauthentication and disassociation events).
+PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT device correctly implements **Protected Management Frames (PMF, IEEE 802.11w)** and to evaluate its robustness against management-frame–based disruptions (e.g., deauthentication and disassociation events).
 
-> ⚠️ Responsible Use  
-> Use PMFInspect **only** on devices and networks you own or are explicitly authorized to test.  
-> This tool is intended for security auditing and research purposes in controlled lab environments.
-
----
-
-## Objectives
-
-PMFInspect helps to:
-
-- Determine the advertised PMF configuration via RSN capabilities (**MFPC / MFPR bits**)
-- Verify whether PMF support is **effectively enforced**, not just announced
+> ⚠️ **Responsible Use**
+> PMFInspect must be used **only** on devices and networks that you own or are explicitly authorized to test.
+> This tool is intended exclusively for security auditing and research purposes in controlled laboratory environments.
 
 ---
 
-## Requirements (General)
+## Requirements
 
-- A Wi-Fi test environment (Access Point configured with WPA2/WPA3 as needed)
-- A target IoT device
-- An analysis machine (Linux recommended) with:
-  - A Wi-Fi interface supporting **monitor mode**
-  - Python 3.10+
+* A Wi-Fi test environment (Access Point configured with WPA2/WPA3 as appropriate)
+* A target IoT device
+* An analysis machine (Linux recommended) equipped with:
+
+  * A Wi-Fi interface supporting **monitor mode**
+  * Python 3.10 or later
 
 ---
 
@@ -33,13 +25,13 @@ PMFInspect helps to:
   <img src="figure.png" alt="Experimental Setup" width="600"/>
 </p>
 
+---
 
-
-##  Repository Structure
+## Repository Structure
 
 ```
 .
-├── example/ Contains example execution workflows and usage demonstrations.
+├── example/
 ├── capture.py
 ├── deauth_capture.py
 ├── element.py
@@ -49,19 +41,20 @@ PMFInspect helps to:
 └── deauth_report.py
 ```
 
-* **example**: a folder that contains all example workflows along with execution code.
+* **example/**: Contains example workflows and execution scripts.
 
-* **capture.py**: the file responsible for capturing network traces during the device association phase. It assists in collecting trace files during this period. It subsequently creates the trace file *"capture.pcap"* inside the *"capture"* directory.
+* **capture.py**: Captures network traces during the device association phase. It collects traffic during this period and generates a trace file (`capture.pcap`) within the `capture/` directory.
 
-* **deauth_capture.py**: contains the script used to execute deauthentication and disassociation attack tests. It collects the resulting traces and stores them in the corresponding directory.
+* **deauth_capture.py**: Executes deauthentication and disassociation test scenarios. It captures the resulting traffic and stores the corresponding trace files in the designated directory.
 
-* **element.py**: a network utility module used by `capture.py` and `deauth_capture.py`.
+* **element.py**: Network utility module used by both `capture.py` and `deauth_capture.py`.
 
-* **requirements.txt**: contains the required dependencies.
+* **devices.json**: Stores device metadata (e.g., MAC address mappings and device types).
 
-* **rsn_report.py**: iterates through the `capture/` directory and generates a JSON report named `"report.json"`.
+* **requirements.txt**: Lists the required Python dependencies.
 
-* **deauth_report.py**: iterates through the `deauth_capture/` directory and generates a JSON report named `"report.json"`.
+* **rsn_report.py**: Processes `.pcap` files from the `capture/` directory and generates a JSON report (`a.json`).
+
+* **deauth_report.py**: Processes `.pcap` files from the `deauth_capture/` directory and generates a JSON report (`b.json`).
 
 ---
-
