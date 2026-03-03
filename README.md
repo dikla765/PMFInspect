@@ -8,17 +8,6 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 
 ---
 
-## Requirements
-
-* A Wi-Fi test environment (Access Point configured with WPA2/WPA3 as appropriate)
-* A target IoT device
-* An analysis machine (Linux recommended) equipped with:
-
-  * A Wi-Fi interface supporting **monitor mode**
-  * Python 3.10 or later
-
----
-
 ## Experimental Setup
 
 <p align="center">
@@ -37,6 +26,7 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 ├── element.py
 ├── devices.json
 ├── requirements.txt
+├── device_onoff.py
 ├── rsn_report.py
 └── deauth_report.py
 ```
@@ -53,8 +43,36 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 
 * **requirements.txt**: Lists the required Python dependencies.
 
+
+* **device_onoff.py**: Python script for automating Android apps via ADB.
+```bash
+python3 device_onoff.py
+```
+
+```bash
+python3 device_onoff.py --n 20 --device 300 700 --toggle 900 950 --app com.example.app
+```
+
 * **rsn_report.py**: Processes `.pcap` files from the `capture/` directory and generates a JSON report (`a.json`).
 
 * **deauth_report.py**: Processes `.pcap` files from the `deauth_capture/` directory and generates a JSON report (`b.json`).
 
 ---
+
+## Requirements
+
+* A Wi-Fi test environment (Access Point configured with WPA2/WPA3 as appropriate)
+* A target IoT device
+* An analysis machine (Linux recommended) equipped with:
+
+  * A Wi-Fi interface supporting **monitor mode**
+  * Python 3.10 or later
+  * ADB installed (`adb devices` must work)
+  
+* Mobile phone running Android
+  * USB debugging enabled
+  * No lock screen password (for auto-unlock)
+
+---
+
+
