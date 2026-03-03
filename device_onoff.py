@@ -1,66 +1,105 @@
 #!/usr/bin/env python3
+# device_onoff.py - ADB automation script to toggle smart devices on/off
+
 import subprocess
 import time
 import sys
 import argparse
+import logging
+from dataclasses import dataclass
 from datetime import datetime
 
 
 # -----------------------------
 # Logging
 # -----------------------------
-def log(msg):
-    print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%H:%M:%S"
+)
+logger = logging.getLogger(__name__)
+
+
+# -----------------------------
+# Custom Exception
+# -----------------------------
+class ADBError(Exception):
+    pass
+
+
+# -----------------------------
+# Timings Config
+# -----------------------------
+@dataclass
+class Timings:
+    open_wait: float = 6.0
+    device_wait: float = 3.0
+    toggle_wait: float = 2.0
+    wake_wait: float = 1.0
+    unlock_wait: float = 1.0
+    stop_wait: float = 1.0
 
 
 # -----------------------------
 # ADB Helpers
 # -----------------------------
-def run(cmd, silent=False):
+def run(cmd, silent=False, timeout=15):
     try:
-        if silent:
-            subprocess.run(cmd, stdout=subprocess.DEVNULL,
-                           stderr=subprocess.DEVNULL, check=False)
-        else:
-            subprocess.run(cmd, check=True)
-    except subprocess.CalledProcessError:
-        log(f"ERROR executing: {' '.join(cmd)}")
-        sys.exit(1)
+        result = subprocess.run(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=timeout
+        )
+        if not silent and result.returncode != 0:
+            raise ADBError(f"Command failed: {' '.join(cmd)}\n{result.stderr.decode().strip()}")
+        if silent and result.returncode != 0:
+            logger.warning(f"Command failed silently (rc={result.returncode}): {' '.join(cmd)}")
+        return result
+    except subprocess.TimeoutExpired:
+        raise ADBError(f"Command timed out after {timeout}s: {' '.join(cmd)}")
 
 
-def adb(cmd, silent=False):
-    run(["adb"] + cmd, silent=silent)
+def adb(cmd, silent=False, timeout=15):
+    return run(["adb"] + cmd, silent=silent, timeout=timeout)
 
 
 # -----------------------------
 # Screen Handling
 # -----------------------------
 def get_screen_state():
-    result = subprocess.run(
-        ["adb", "shell", "dumpsys", "power"],
-        capture_output=True,
-        text=True
-    )
-    return result.stdout
+    result = run(["adb", "shell", "dumpsys", "power"], timeout=10)
+    return result.stdout.decode()
 
 
-def wake_and_unlock():
-    log("Checking screen state...")
+def wait_for_screen_on(max_retries=10, interval=0.5):
+    """Poll until screen is ON or give up."""
+    for _ in range(max_retries):
+        if "Display Power: state=ON" in get_screen_state():
+            return True
+        time.sleep(interval)
+    return False
+
+
+def wake_and_unlock(timings: Timings):
+    logger.info("Checking screen state...")
     power_state = get_screen_state()
 
     if "Display Power: state=OFF" in power_state:
-        log("Screen OFF → Waking device")
+        logger.info("Screen OFF → Waking device")
         adb(["shell", "input", "keyevent", "KEYCODE_WAKEUP"])
-        time.sleep(1)
+        if not wait_for_screen_on():
+            raise ADBError("Screen did not turn ON after wakeup")
     else:
-        log("Screen already ON")
+        logger.info("Screen already ON")
 
-    log("Unlocking screen")
+    logger.info("Unlocking screen")
     adb(["shell", "input", "swipe", "500", "1500", "500", "500", "300"])
-    time.sleep(1)
+    time.sleep(timings.unlock_wait)
 
     adb(["shell", "wm", "dismiss-keyguard"], silent=True)
-    time.sleep(1)
+    time.sleep(timings.unlock_wait)
 
 
 # -----------------------------
@@ -68,7 +107,8 @@ def wake_and_unlock():
 # -----------------------------
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="ADB automation script")
+        description="Professional ADB automation script"
+    )
 
     parser.add_argument(
         "--app",
@@ -77,7 +117,7 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--n",
+        "-n", "--cycles",
         type=int,
         default=10,
         help="Number of toggle cycles (default: 10)"
@@ -109,61 +149,59 @@ def parse_args():
 # -----------------------------
 def main():
     args = parse_args()
+    timings = Timings()
 
     APP = args.app
-    N = args.n
+    N = args.cycles
     DEVICE_X, DEVICE_Y = args.device
     TOGGLE_X, TOGGLE_Y = args.toggle
 
-    OPEN_WAIT = 6
-    DEVICE_WAIT = 3
-    TOGGLE_WAIT = 2
+    try:
+        logger.info("Waiting for device...")
+        adb(["wait-for-device"], timeout=30)
 
-    log("Waiting for device...")
-    adb(["wait-for-device"])
+        wake_and_unlock(timings)
 
-    wake_and_unlock()
+        # Verify package
+        logger.info("Checking package...")
+        result = adb(["shell", "pm", "path", APP], silent=True)
+        if not result.stdout.decode().strip().startswith("package:"):
+            raise ADBError(f"Package '{APP}' not found on device")
 
-    # Verify package
-    log("Checking package...")
-    result = subprocess.run(
-        ["adb", "shell", "pm", "path", APP],
-        capture_output=True,
-        text=True
-    )
+        logger.info("Force-stopping app")
+        adb(["shell", "am", "force-stop", APP], silent=True)
+        time.sleep(timings.stop_wait)
 
-    if APP not in result.stdout:
-        log(f"ERROR: Package {APP} not found")
+        logger.info("Launching app")
+        adb(["shell", "monkey", "-p", APP,
+             "-c", "android.intent.category.LAUNCHER", "1"], silent=True)
+        time.sleep(timings.open_wait)
+
+        logger.info(f"Opening device @({DEVICE_X},{DEVICE_Y})")
+        adb(["shell", "input", "tap", str(DEVICE_X), str(DEVICE_Y)])
+        time.sleep(timings.device_wait)
+
+        for i in range(1, N + 1):
+            logger.info(f"Cycle {i}/{N}: toggle @({TOGGLE_X},{TOGGLE_Y})")
+            adb(["shell", "input", "tap", str(TOGGLE_X), str(TOGGLE_Y)])
+            time.sleep(timings.toggle_wait)
+
+        logger.info("Navigating back")
+        adb(["shell", "input", "keyevent", "KEYCODE_BACK"])
+        time.sleep(1)
+
+    except ADBError as e:
+        logger.error(str(e))
         sys.exit(1)
 
-    log("Force-stop app")
-    adb(["shell", "am", "force-stop", APP])
-    time.sleep(1)
+    finally:
+        logger.info("Force-stopping app (cleanup)")
+        try:
+            adb(["shell", "am", "force-stop", APP], silent=True)
+        except Exception:
+            pass
 
-    log("Launching app")
-    adb(["shell", "monkey", "-p", APP,
-        "-c", "android.intent.category.LAUNCHER", "1"], silent=True)
-    time.sleep(OPEN_WAIT)
-
-    log(f"Opening device @({DEVICE_X},{DEVICE_Y})")
-    adb(["shell", "input", "tap",
-        str(DEVICE_X), str(DEVICE_Y)])
-    time.sleep(DEVICE_WAIT)
-
-    for i in range(1, N + 1):
-        log(f"Cycle {i}/{N}: toggle @({TOGGLE_X},{TOGGLE_Y})")
-        adb(["shell", "input", "tap",
-            str(TOGGLE_X), str(TOGGLE_Y)])
-        time.sleep(TOGGLE_WAIT)
-
-    log("Back")
-    adb(["shell", "input", "keyevent", "KEYCODE_BACK"])
-    time.sleep(1)
-
-    log("Force-stop app")
-    adb(["shell", "am", "force-stop", APP])
-
-    log("Done.")
+    logger.info("Done.")
 
 
 if __name__ == "__main__":

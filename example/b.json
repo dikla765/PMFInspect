@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "target_mac": "f0:a7:31:5a:34:5f",
+    "ap_mac": "cc:28:aa:6d:06:28",
+    "capture_dir": "/home/User/Desktop/PMFInspect/desauthcapture",
+    "tshark": true,
+    "scapy_eapol": true,
+    "use_tshark": "auto"
+  },
+  "global_robustness": {
+    "captures_analysed": 2,
+    "score_pct": 0.0,
+    "grade": "F",
+    "verdict_distribution": {
+      "robust": 0,
+      "partial": 0,
+      "reconnected_only": 0,
+      "not_robust": 2
+    },
+    "interpretation": "Device does not recover from deauth attacks."
+  },
+  "captures": [
+    {
+      "capture_file": "deauth_capture_1.pcap",
+      "index": "1",
+      "total_packets": 32018,
+      "deauth_disassoc": {
+        "deauth_to_device": 1199,
+        "deauth_to_ap": 1195,
+        "disassoc_to_device": 1164,
+        "disassoc_to_ap": 1165
+      },
+      "reassociation": {
+        "reassociation_attempts": 0,
+        "reconnected": false,
+        "first_reconnect_time": null,
+        "last_reconnect_time": null,
+        "events": []
+      },
+      "eapol_handshake": {
+        "message_counts": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "unknown": 0
+        },
+        "complete_handshake_detected": false,
+        "frames": []
+      },
+      "app_traffic": {
+        "data_frames_after_attack": 3,
+        "app_traffic_detected": true
+      },
+      "verdict": "not_robust",
+      "verdict_description": "Device did NOT reconnect after the deauth attack."
+    },
+    {
+      "capture_file": "deauth_capture_2.pcap",
+      "index": "2",
+      "total_packets": 28944,
+      "deauth_disassoc": {
+        "deauth_to_device": 1211,
+        "deauth_to_ap": 1189,
+        "disassoc_to_device": 1131,
+        "disassoc_to_ap": 1110
+      },
+      "reassociation": {
+        "reassociation_attempts": 0,
+        "reconnected": false,
+        "first_reconnect_time": null,
+        "last_reconnect_time": null,
+        "events": []
+      },
+      "eapol_handshake": {
+        "message_counts": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "unknown": 0
+        },
+        "complete_handshake_detected": false,
+        "frames": []
+      },
+      "app_traffic": {
+        "data_frames_after_attack": 3,
+        "app_traffic_detected": true
+      },
+      "verdict": "not_robust",
+      "verdict_description": "Device did NOT reconnect after the deauth attack."
+    }
+  ],
+  "verdict_legend": {
+    "robust": "Device reconnected, completed 4-way handshake and resumed app traffic.",
+    "partial": "Device reconnected but did not complete full 4-way handshake or no app traffic.",
+    "reconnected_only": "Device reconnected but no EAPOL or app traffic detected.",
+    "not_robust": "Device did NOT reconnect after the deauth attack."
+  }
+}

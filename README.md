@@ -20,15 +20,20 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 
 ```
 .
+├── capture/
+│   └── capture_X.pcap
+├── desauthcapture/
+│   └── deauth_capture_X.pcap
 ├── example/
 ├── capture.py
 ├── deauth_capture.py
-├── element.py
-├── devices.json
-├── requirements.txt
+├── deauth_report.py
 ├── device_onoff.py
+├── element.py
 ├── rsn_report.py
-└── deauth_report.py
+├── devices.json
+└──requirements.txt
+
 ```
 
 * **example/**: Contains example workflows and execution scripts.
@@ -45,13 +50,6 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 
 
 * **device_onoff.py**: Python script for automating Android apps via ADB.
-```bash
-python3 device_onoff.py
-```
-
-```bash
-python3 device_onoff.py --n 20 --device 300 700 --toggle 900 950 --app com.example.app
-```
 
 * **rsn_report.py**: Processes `.pcap` files from the `capture/` directory and generates a JSON report (`a.json`).
 
@@ -68,11 +66,21 @@ python3 device_onoff.py --n 20 --device 300 700 --toggle 900 950 --app com.examp
   * A Wi-Fi interface supporting **monitor mode**
   * Python 3.10 or later
   * ADB installed (`adb devices` must work)
-  
+
 * Mobile phone running Android
   * USB debugging enabled
   * No lock screen password (for auto-unlock)
 
 ---
+
+## Usage
+
+```bash
+python3 device_onoff.py
+```
+
+```bash
+python3 device_onoff.py --n 20 --device 300 700 --toggle 900 950 --app com.example.app
+```
 
 
