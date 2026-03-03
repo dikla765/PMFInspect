@@ -10,19 +10,24 @@ netifaces>=0.11.0
 # System Dependencies (install via OS package manager)
 # =========================
 # These are REQUIRED but NOT installed by pip.
-#
+
 # Debian / Ubuntu / Kali:
-# sudo apt install tcpdump tshark aircrack-ng wireless-tools iw libcap2-bin
-#
+# sudo apt install tcpdump tshark aircrack-ng wireless-tools iw libcap2-bin android-tools-adb
+
 # Fedora:
-# sudo dnf install tcpdump wireshark-cli aircrack-ng wireless-tools iw libcap
-#
+# sudo dnf install tcpdump wireshark-cli aircrack-ng wireless-tools iw libcap android-tools
+
 # Arch:
-# sudo pacman -S tcpdump wireshark-cli aircrack-ng wireless_tools iw libcap
-#
-# Tools used:
+# sudo pacman -S tcpdump wireshark-cli aircrack-ng wireless_tools iw libcap android-tools
+
+
+# =========================
+# Tools Used
+# =========================
+
 # - tcpdump        → packet capture (monitor mode)
 # - tshark         → EAPOL fallback decoding
 # - aircrack-ng    → airmon-ng (monitor mode)
 # - iw / iwconfig  → channel configuration
 # - libcap2-bin    → setcap / getcap for tcpdump capabilities
+# - adb            → Android Debug Bridge (device automation & control)
