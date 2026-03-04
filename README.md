@@ -26,6 +26,7 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 │   └── deauth_capture_X.pcap
 ├── example/
 ├── capture.py
+├── deauth_auto.py
 ├── deauth_capture.py
 ├── deauth_report.py
 ├── device_onoff.py
@@ -40,6 +41,8 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 * **capture.py**: Captures network traces during the device association phase. It collects traffic during this period and generates a trace file (`capture.pcap`) within the `capture/` directory.
 
 * **deauth_capture.py**: Executes deauthentication and disassociation test scenarios. It captures the resulting traffic and stores the corresponding trace files in the designated directory.
+
+* **deauth_auto.py**: Executes deauthentication and disassociation test scenarios and uses **device_onoff.py** to automatically control the device at the same time. It captures the resulting traffic and stores the corresponding trace files in the designated directory.
 
 * **element.py**: Network utility module used by both `capture.py` and `deauth_capture.py`.
 
@@ -74,13 +77,16 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 
 ---
 
-# Capture and Analysis of PMF Implementation
+## Capture and Analysis of PMF Implementation
 
-Set up the experimental device, power off the device, and collect traffic in parallel.
+Set up the experimental device, power off the device, execute the code, then power on the device successively.
+The objective is to collect association frames.
 
 ```bash
 python3 capture.py --channel 6 --duration 120 --bssid 50:91:E3:1C:9B:E4
 ```
+
+Use **rsn_report.py** to obtain the JSON report.
 
 ```bash
 python3 rsn_report.py \
@@ -91,13 +97,21 @@ python3 rsn_report.py \
   --json-out a.json
 ```
 
+Output
+
+The script produces
+
+```
+a.json
+```
+
 ---
 
-# Robustness Test Against Deauthentication / Disassociation
+## Robustness Test Against Deauthentication / Disassociation
 
 Power on the device and execute the following command.
 
-### Example 1
+### Example 1: requires the user to manually toggle ON/OFF during the test
 
 ```bash
 sudo python3 desauth.py -t F0:A7:31:5A:34:5F -a 24:5A:4C:12:34:56
@@ -122,14 +136,12 @@ desauthcapture/
 
 ---
 
-### Example 2
-
-Wi-Fi **deauthentication / disassociation testing tool** with **traffic capture** and **device stress testing**.
+### Example 2: requires the user to connect a USB cable; ON/OFF commands are executed automatically via ADB
 
 Basic execution:
 
 ```bash
-sudo python3 desauth.py
+sudo python3 desauth_auto.py
 ```
 
 Options
@@ -152,25 +164,13 @@ Options
 ---
 
 ```bash
-sudo python3 desauth.py \
+sudo python3 desauth_auto.py \
  -t F0:A7:31:5A:34:5F \
  --channel 6 \
  --count 500 \
  --stress \
  --device-cycles 10
 ```
-
----
-
-### Custom Channel and Packet Count
-
-```bash
-sudo python3 desauth.py \
-  --channel 6 \
-  --count 500
-```
-
----
 
 Captured packets are saved in
 
@@ -180,18 +180,18 @@ desauthcapture/
    deauth_capture_2.pcap
 ```
 
-Use **filtre.py** to analyze Wi-Fi deauthentication attack captures and evaluate device robustness.
+Use **deauth_report.py** to analyze Wi-Fi deauthentication attack captures and evaluate device robustness.
 
 Basic execution:
 
 ```bash
-python3 filtre.py --target 50:91:E3:1C:9B:E4 --ap AA:BB:CC:DD:EE:FF
+python3 deauth_report.py --target 50:91:E3:1C:9B:E4 --ap AA:BB:CC:DD:EE:FF
 ```
 
 Custom directories:
 
 ```bash
-python3 filtre.py \
+python3 deauth_report.py \
   --target 50:91:E3:1C:9B:E4 \
   --ap AA:BB:CC:DD:EE:FF \
   --capture-dir desauthcapture \
@@ -208,9 +208,7 @@ Options
 | `--json-out`    | Output JSON report                              |
 | `--use-tshark`  | `auto`, `always`, or `never` for EAPOL decoding |
 
----
-
-## Output
+Output
 
 The script produces
 
