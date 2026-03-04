@@ -70,6 +70,10 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
   * Python 3.10 or later
   * ADB installed (`adb devices` must work)
 
+```
+use requirements.txt
+```
+
 * Mobile phone running Android
 
   * USB debugging enabled
@@ -83,8 +87,14 @@ Set up the experimental device, power off the device, execute the code, then pow
 The objective is to collect association frames.
 
 ```bash
-python3 capture.py --channel 6 --duration 120 --bssid 50:91:E3:1C:9B:E4
+python3 capture.py --channel 6 --duration 120 --bssid AA:BB:CC:DD:EE:FF
 ```
+| Option       | Default | Description                                                        |
+| ------------ | ------- | ------------------------------------------------------------------ |
+| `--channel`  | `1`     | Wi-Fi channel used for the capture                                 |
+| `--duration` | `60`    | Capture duration in seconds                                        |
+| `--bssid`    | none    | Optional BSSID filter to capture traffic from a specific device/AP |
+
 
 Use **rsn_report.py** to obtain the JSON report.
 
@@ -96,6 +106,16 @@ python3 rsn_report.py \
   --min-pkts 5 \
   --json-out a.json
 ```
+
+| Option          | Default        | Description                                               |
+| --------------- | -------------- | --------------------------------------------------------- |
+| `--devices`     | `devices.json` | JSON file containing device MAC address mappings          |
+| `--capture-dir` | `capture`      | Folder containing `capture_*.pcap` files                  |
+| `--out-dir`     | `.`            | Output directory for split PCAP files                     |
+| `--min-pkts`    | `1`            | Minimum number of packets required to write a device PCAP |
+| `--json-out`    | `a.json`       | Output JSON report file                                   |
+| `--use-tshark`  | `auto`         | EAPOL decoding mode: `auto`, `always`, or `never`         |
+
 
 Output
 
@@ -114,7 +134,7 @@ Power on the device and execute the following command.
 ### Example 1: requires the user to manually toggle ON/OFF during the test
 
 ```bash
-sudo python3 desauth.py -t F0:A7:31:5A:34:5F -a 24:5A:4C:12:34:56
+sudo python3 desauth.py -t AA:BB:CC:DD:EE:FF -a AA:BB:CC:DD:EE:11
 ```
 
 | Option          | Short | Default             | Description                 |
