@@ -32,8 +32,7 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 ├── element.py
 ├── rsn_report.py
 ├── devices.json
-└──requirements.txt
-
+└── requirements.txt
 ```
 
 * **example/**: Contains example workflows and execution scripts.
@@ -48,7 +47,6 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 
 * **requirements.txt**: Lists the required Python dependencies.
 
-
 * **device_onoff.py**: Python script for automating Android apps via ADB.
 
 * **rsn_report.py**: Processes `.pcap` files from the `capture/` directory and generates a JSON report (`a.json`).
@@ -60,7 +58,9 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
 ## Requirements
 
 * A Wi-Fi test environment (Access Point configured with WPA2/WPA3 as appropriate)
+
 * A target IoT device
+
 * An analysis machine (Linux recommended) equipped with:
 
   * A Wi-Fi interface supporting **monitor mode**
@@ -68,19 +68,152 @@ PMFInspect is a **defensive evaluation tool** designed to assess whether an IoT 
   * ADB installed (`adb devices` must work)
 
 * Mobile phone running Android
+
   * USB debugging enabled
   * No lock screen password (for auto-unlock)
 
 ---
 
-## Usage
+# Capture and Analysis of PMF Implementation
+
+Set up the experimental device, power off the device, and collect traffic in parallel.
 
 ```bash
-python3 device_onoff.py
+python3 capture.py --channel 6 --duration 120 --bssid 50:91:E3:1C:9B:E4
 ```
 
 ```bash
-python3 device_onoff.py --n 20 --device 300 700 --toggle 900 950 --app com.example.app
+python3 rsn_report.py \
+  --devices devices.json \
+  --capture-dir capture \
+  --out-dir results \
+  --min-pkts 5 \
+  --json-out a.json
 ```
 
+---
 
+# Robustness Test Against Deauthentication / Disassociation
+
+Power on the device and execute the following command.
+
+### Example 1
+
+```bash
+sudo python3 desauth.py -t F0:A7:31:5A:34:5F -a 24:5A:4C:12:34:56
+```
+
+| Option          | Short | Default             | Description                 |
+| --------------- | ----- | ------------------- | --------------------------- |
+| `--interface`   | `-i`  | auto                | Wireless interface          |
+| `--target`      | `-t`  | `50:91:E3:1C:9B:E4` | Target device MAC           |
+| `--ap`          | `-a`  | gateway MAC         | Access point MAC            |
+| `--count`       | `-n`  | 1000                | Number of attack iterations |
+| `--no-disassoc` | —     | off                 | Send only deauth frames     |
+| `--capture-ap`  | —     | off                 | Capture only AP traffic     |
+
+Output: captured packets are saved in
+
+```
+desauthcapture/
+   deauth_capture_1.pcap
+   deauth_capture_2.pcap
+```
+
+---
+
+### Example 2
+
+Wi-Fi **deauthentication / disassociation testing tool** with **traffic capture** and **device stress testing**.
+
+Basic execution:
+
+```bash
+sudo python3 desauth.py
+```
+
+Options
+
+| Option              | Description                                |
+| ------------------- | ------------------------------------------ |
+| `-i`, `--interface` | Wi-Fi interface (auto-detected by default) |
+| `-t`, `--target`    | Target device MAC                          |
+| `-a`, `--ap`        | Access point MAC                           |
+| `-n`, `--count`     | Number of attack iterations                |
+| `--channel`         | Wi-Fi channel                              |
+| `--no-disassoc`     | Disable disassociation frames              |
+| `--capture-ap`      | Capture only AP traffic                    |
+| `--stress`          | Run stress test mode                       |
+| `--device-cycles`   | Number of ON/OFF cycles                    |
+| `--device-xy`       | Device tap coordinates                     |
+| `--toggle-xy`       | Toggle tap coordinates                     |
+| `--app`             | Android app package                        |
+
+---
+
+```bash
+sudo python3 desauth.py \
+ -t F0:A7:31:5A:34:5F \
+ --channel 6 \
+ --count 500 \
+ --stress \
+ --device-cycles 10
+```
+
+---
+
+### Custom Channel and Packet Count
+
+```bash
+sudo python3 desauth.py \
+  --channel 6 \
+  --count 500
+```
+
+---
+
+Captured packets are saved in
+
+```
+desauthcapture/
+   deauth_capture_1.pcap
+   deauth_capture_2.pcap
+```
+
+Use **filtre.py** to analyze Wi-Fi deauthentication attack captures and evaluate device robustness.
+
+Basic execution:
+
+```bash
+python3 filtre.py --target 50:91:E3:1C:9B:E4 --ap AA:BB:CC:DD:EE:FF
+```
+
+Custom directories:
+
+```bash
+python3 filtre.py \
+  --target 50:91:E3:1C:9B:E4 \
+  --ap AA:BB:CC:DD:EE:FF \
+  --capture-dir desauthcapture \
+  --json-out b.json
+```
+
+Options
+
+| Option          | Description                                     |
+| --------------- | ----------------------------------------------- |
+| `--target`      | Device MAC address                              |
+| `--ap`          | Access point MAC                                |
+| `--capture-dir` | Folder containing `deauth_capture_*.pcap`       |
+| `--json-out`    | Output JSON report                              |
+| `--use-tshark`  | `auto`, `always`, or `never` for EAPOL decoding |
+
+---
+
+## Output
+
+The script produces
+
+```
+b.json
+```
