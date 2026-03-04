@@ -134,7 +134,7 @@ desauthcapture/
    deauth_capture_2.pcap
 ```
 
----
+
 
 ### Example 2: requires the user to connect a USB cable; ON/OFF commands are executed automatically via ADB
 
@@ -161,7 +161,6 @@ Options
 | `--toggle-xy`       | Toggle tap coordinates                     |
 | `--app`             | Android app package                        |
 
----
 
 ```bash
 sudo python3 desauth_auto.py \
@@ -215,3 +214,4 @@ The script produces
 ```
 b.json
 ```
+---
